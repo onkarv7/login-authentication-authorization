@@ -1,5 +1,4 @@
 # Login authentication authorization
-#### use postman
 ### Tech Stacks
 ```python
 Node JS , Express JS , Mongo DB , Mongoose , JOI , JWT , Postman , bcryptjs , dotenv , nodemoon
