@@ -30,7 +30,7 @@ app.use("/auth", authRouter);
 app.use("/auth/post", postRouter);
 
 mongoose
-  .connect(process.env.MONGO_KEY)
+  .connect("mongodb+srv://onkarvasav:onkarvasav7@auth.jxoqnhi.mongodb.net/?retryWrites=true&w=majority")
   .then(() => {
     console.log("DB is up and running");
   })
