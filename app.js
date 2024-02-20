@@ -26,7 +26,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 mongoose
-  .connect(process.env.MONGO_KEY)
+  .connect(process.env.MONGO_KEY,{
+    bufferCommands: false,
+    bufferTimeoutMS: 30000, 
+})
   .then(() => {
     console.log("DB is up and running");
   })
