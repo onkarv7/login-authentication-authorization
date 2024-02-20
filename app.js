@@ -24,6 +24,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/", indexRouter);
+app.use("/users", usersRouter);
+app.use("/auth", authRouter);
+app.use("/auth/post", postRouter);
 
 mongoose
   .connect(process.env.MONGO_KEY,{
@@ -36,11 +40,6 @@ mongoose
   .catch((error) => {
     console.error("Error connecting to the database:", error);
   });
-
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/auth", authRouter);
-app.use("/auth/post", postRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
