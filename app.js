@@ -30,10 +30,7 @@ app.use("/auth", authRouter);
 app.use("/auth/post", postRouter);
 
 mongoose
-  .connect(process.env.MONGO_KEY,{
-    bufferCommands: false,
-    bufferTimeoutMS: 30000, 
-})
+  .connect(process.env.MONGO_KEY)
   .then(() => {
     console.log("DB is up and running");
   })
