@@ -20,10 +20,10 @@ const Loginschema = Joi.object({
   password: Joi.string().required().min(6),
 });
 
-router.get("/", async (req, res) => {
-  const users = await User.find();
-  res.status(200).send(users);
-});
+// router.get("/", async (req, res) => {
+//   const users = await User.find();
+//   res.status(200).send(users);
+// });
 
 // delete based on id
 router.delete("/users/:id", async (req, res) => {

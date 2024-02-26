@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 var dotenv = require("dotenv");
+var cors = require("cors");
 
 // routes
 var authRouter = require("./routes/auth");
@@ -18,7 +19,7 @@ var app = express();
 // middlewares
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
-
+app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
