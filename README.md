@@ -42,20 +42,20 @@ https://login-787q.onrender.com/auth/login
 ## Users  
 #### use postman
 
-Use route https://login-787q.onrender.com/auth/ with GET method and pass 
+Use route https://login-787q.onrender.com/auth/user with GET method and pass 
 then it will show all the users.
 
 ```bash
-https://login-787q.onrender.com/auth/
+https://login-787q.onrender.com/auth/user
 ```
 
 ## Secure Route Post 
 #### use postman
 
-Use route https://login-787q.onrender.com/auth/post with POST method and it will generate the post, but before that you need to pass the JWT TOKEN which is generated when you LOGIN
+Use route https://login-787q.onrender.com/auth/post/post with GET method and it will generate the post, but before that you need to pass the JWT TOKEN which is generated when you LOGIN
 
 ```bash
-https://login-787q.onrender.com/auth/post
+https://login-787q.onrender.com/auth/post/post
 
 ```
 
