@@ -1,10 +1,9 @@
-import express from "express";
-import verify from "./verifyRoute.js";
-const router = express.Router();
+var express = require("express");
+var router = express.Router();
+var verify = require("../routes/verifyRoute");
 
 router.get("/", verify, async (req, res) => {
   res.send("if you are verified , you can create a post");
 });
 
-export default router;
-
+module.exports = router;
