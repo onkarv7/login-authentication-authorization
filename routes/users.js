@@ -1,9 +1,9 @@
 var express = require("express");
 var router = express.Router();
+var verify = require("../routes/verifyRoute");
 
-/* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.send("respond with a resource");
+router.get("/", verify, async (req, res) => {
+  res.send("if you are verified , you can create a post");
 });
 
 module.exports = router;

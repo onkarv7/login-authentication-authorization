@@ -1,14 +1,25 @@
 const Jwt = require("jsonwebtoken");
 
-// func to verify routes with Jwt token
-
-module.exports = function (req, res, next) {
+const verify = (req, res, next) => {
   const token = req.header("auth-token");
+
+  if (!token) {
+    return res.status(401).send("Access denied. No token provided.");
+  }
+
   try {
     const verified = Jwt.verify(token, process.env.JWT_KEY);
-    res.user = verified;
+    req.user = verified;
     next();
   } catch (err) {
-    res.status(400).send("invalid token");
+    if (err.name === "JsonWebTokenError") {
+      // Invalid token
+      res.status(401).send("Invalid token");
+    } else {
+      // Other errors (e.g., token expired)
+      res.status(401).send("Token validation error");
+    }
   }
 };
+
+module.exports = verify;
